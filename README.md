@@ -1,14 +1,26 @@
 # Khelzam Server ⚙️
 
-The robust backend REST API for the Khelzam educational platform. This server manages complex business logic for exam creation, handles secure user authentication, and serves data to the frontend dashboard. 
+The robust backend REST API for the Khelzam educational platform. This server manages complex business logic for exam creation, handles secure user authentication, and serves data to the frontend dashboard.
+
+---
 
 ## 🏗️ System Architecture & Tech Stack
 
+**Core Infrastructure**
 * **Runtime Environment:** [Node.js](https://nodejs.org/) (v18+)
 * **Web Framework:** [Express.js](https://expressjs.com/)
-* **Database:** [MongoDB](https://www.mongodb.com/) utilizing [Mongoose](https://mongoosejs.com/) ODM
-* **Security & Auth:** JSON Web Tokens (JWT), bcryptjs for password hashing, CORS, and Express Rate Limit
 * **Environment Management:** dotenv
+
+**Data Layer**
+* **Database:** [MongoDB](https://www.mongodb.com/) 
+* **ODM:** [Mongoose](https://mongoosejs.com/)
+
+**Security & Optimization**
+* **Authentication:** JSON Web Tokens (JWT)
+* **Encryption:** bcryptjs (Password hashing)
+* **Middleware:** CORS, Express Rate Limit
+
+---
 
 ## 📁 Project Structure
 
@@ -25,6 +37,7 @@ khelzam-server/
 └── package.json      # Dependencies and scripts
 
 
+
 ## 📡 API Endpoints Reference
 
 The API follows RESTful principles and returns data in standard JSON format. 
@@ -32,7 +45,7 @@ The API follows RESTful principles and returns data in standard JSON format.
 ### Authentication & Users
 
 | Method | Endpoint | Description | Auth Required | Role |
-| :--- | :--- | :--- | :--- | :--- |
+
 | **POST** | `/api/auth/register` | Register a new system user | No | Any |
 | **POST** | `/api/auth/login` | Authenticate and retrieve JWT | No | Any |
 | **GET** | `/api/users/profile` | Get logged-in user's profile | Yes | Any |
@@ -41,7 +54,7 @@ The API follows RESTful principles and returns data in standard JSON format.
 ### Exam Management
 
 | Method | Endpoint | Description | Auth Required | Role |
-| :--- | :--- | :--- | :--- | :--- |
+
 | **POST** | `/api/exams` | Create a new exam with questions | Yes | Admin/Teacher |
 | **GET** | `/api/exams` | Retrieve a paginated list of all exams | Yes | Any |
 | **GET** | `/api/exams/:id` | Get full details of a specific exam | Yes | Any |
@@ -51,7 +64,6 @@ The API follows RESTful principles and returns data in standard JSON format.
 ### Assessment & Results
 
 | Method | Endpoint | Description | Auth Required | Role |
-| :--- | :--- | :--- | :--- | :--- |
 | **POST** | `/api/results/:examId` | Submit exam answers for grading | Yes | Student |
 | **GET** | `/api/results/:examId` | Get all student scores for an exam | Yes | Admin/Teacher |
 | **GET** | `/api/results/user/:userId`| Retrieve exam history for a user | Yes | Any |
