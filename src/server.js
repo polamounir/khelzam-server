@@ -40,7 +40,7 @@ app.use(express.json());
 
 // Enable CORS
 app.use(cors({
-  origin: '*', // Allow all origins for now (can be restricted later)
+  origin: '*', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
